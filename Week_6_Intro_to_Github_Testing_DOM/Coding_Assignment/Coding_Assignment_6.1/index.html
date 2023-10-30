@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="create()">Add PacMan</button>
+    <button onclick="move()">Start Game</button>
+    <script>
+        var pacman = [];
+        var x_pos = [];
+        var y_pos = [];
+        var x_vel = [];
+        var y_vel = [];
+        var direction = [];
+        var flag = 0;
+        function create() {
+            let xpos = Math.random() * 500;
+            let ypos = Math.random() * 500;
+            let xvel = Math.floor(Math.random() * 20);
+            let yvel = Math.floor(Math.random() * 20);
+            var new_img = document.createElement("img");
+            new_img.src = "pacman1.jpg";
+            new_img.style.width = "50px";
+            new_img.style.left = xpos + 'px';
+            new_img.style.top = ypos + 'px';
+            new_img.style.position = "absolute";
+            document.body.appendChild(new_img);
+            pacman.push(new_img);
+            x_pos.push(xpos);
+            y_pos.push(ypos);
+            x_vel.push(xvel);
+            y_vel.push(yvel);
+            direction.push(0); 
+        }
+        function move() {
+            var PacMan = [["pacman1.jpg", "pacman2.jpg"], ["pacman3.jpg", "pacman4.jpg"]];
+            for (let i = 0; i < pacman.length; i++) {
+                if ((x_pos[i] > 1000 || x_pos[i] < 0) || (y_pos[i] > 600 || y_pos[i] < 0)) {
+                    direction[i] = 1 - direction[i];
+                }
+                if (direction[i] === 0) {
+                    x_pos[i] += x_vel[i];
+                    y_pos[i] += y_vel[i];
+                } else {
+                    x_pos[i] -= x_vel[i];
+                    y_pos[i] -= y_vel[i];
+                }
+                pacman[i].src = PacMan[direction[i]][flag];
+                pacman[i].style.left = x_pos[i] + 'px';
+                pacman[i].style.top = y_pos[i] + 'px';
+            }
+            flag = 1 - flag;
+            setTimeout(move, 100);
+        }
+    </script>
+</body>
+</html>
