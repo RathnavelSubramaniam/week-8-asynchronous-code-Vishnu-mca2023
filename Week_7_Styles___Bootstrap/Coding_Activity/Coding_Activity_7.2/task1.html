@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridtemplate</title>
+    <style>
+        body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.gridcontainer{
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    grid-template-areas: 
+    "e h"
+    "s c"
+    "f f";
+    width: 120px;
+    grid-template-rows: 1fr 2fr 1fr;
+    gap:10px;
+    margin: 20px;
+    
+
+}
+.empty{
+    grid-area:e;
+}
+#a{
+    grid-area:h;
+    border: 2px solid gray;
+    background-color: gray;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+   
+}
+#b{
+    grid-area:s;
+    border: 2px solid blue;
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+#c{
+    grid-area:c;
+    border: 2px solid blue;
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+#d{
+    grid-area:f;
+    border: 2px solid gray;
+    background-color: gray;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="gridcontainer">
+        <div class="empty"> </div>
+        <div id="a"> Header </div>
+          
+       
+        <div id="b">Sidebar</div>
+           
+        
+        <div id="c">Content this is the main area for content</div>
+           
+        
+        <div id="d" > Footer</div>
+          
+        
+    </div>
+</body>
+</html>
