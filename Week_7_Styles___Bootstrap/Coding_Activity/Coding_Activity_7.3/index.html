@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRID</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <button onclick="create()">CREATE GRID</button>
+    <button onclick="move()">MOVE</button>
+    <div id="target">
+    </div>
+
+    
+    <script>
+function create(){
+    for(let i=1;i<=100;i++){
+        var div=document.createElement("div");
+        div.textContent=i;
+        div.style.border="2px solid black"
+        div.style.padding="5px"
+        div.style.textAlign="center"
+        div.id=i;
+        document.getElementById('target').appendChild(div);
+    }
+}
+
+var value=1;
+function move(){
+
+    if(value>1 && value<=100){
+       let grid=value-1;
+
+       for(let i=1;i<=grid;i++){
+           let div =document.getElementById(i);
+           div.style.backgroundColor="white"
+       }
+
+    }
+
+    let div=document.getElementById(value);
+
+    div.classList.toggle('on');
+
+    value=value+1;
+ 
+    setTimeout(move,100);
+} 
+    </script>
+     </body>
+
+</html>
+   
+   
+  
+  
+     
+  
+   
+    
+    
+  
+
+
+  
+
+
+
+
+
+
